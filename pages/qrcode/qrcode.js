@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import QRCode from "react-native-ff-qrcode";
+import {RNQRCode} from "react-native-ff-qrcode";
 class home extends Component {
 
     static navigationOptions = ({ navigation }) => ({
@@ -27,14 +27,15 @@ class home extends Component {
     }
 
     nativeQrcode = ()=> {
-        QRCode.nativeQRCodeWithCallback((res)=>{
+        console.log(RNQRCode)
+        RNQRCode.nativeQRCodeWithCallback((res)=>{
             this.setState({nativeQrcodeRes: res});
             alert(res);
         })
     }
 
     photoQrcode = ()=> {
-        QRCode.libraryPhotoQRCodeWithCallback((res)=>{
+        RNQRCode.libraryPhotoQRCodeWithCallback((res)=>{
             this.setState({nativeQrcodeRes: res});
             alert(res);
         })
