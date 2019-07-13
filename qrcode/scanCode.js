@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from "react-native";
-import { QRCodeModule, QrcodeView } from "react-native-ff-qrcode";
+import { RNQRCode, QrcodeView } from "react-native-ff-qrcode";
 export default class scanCode extends Component {
 
     static navigationOptions = ({ navigation }) => ({
@@ -11,14 +11,14 @@ export default class scanCode extends Component {
     })
 
     albumScanCode = ()=>{
-        QRCodeModule.libraryPhotoQRCodeWithCallback((res)=>{
+        RNQRCode.libraryPhotoQRCodeWithCallback((res)=>{
             console.log(res);
             alert(res);
         })
     }
 
     componentDidMount() {
-        QRCodeModule.initQrCodeView((res)=> {
+        RNQRCode.initQrCodeView((res)=> {
             console.log(res);
             alert(res);
         });
