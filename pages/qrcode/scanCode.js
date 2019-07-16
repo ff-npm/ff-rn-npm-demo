@@ -26,8 +26,8 @@ export default class scanCode extends Component {
 
     render() {
         return (
-            <View>
-                <QrcodeView style={{flex: 1}} />
+            <View style={{flex: 1}}>
+                <QrcodeView style={{flex: 1, backgroundColor:"red"}} />
             </View>
         )
     }
