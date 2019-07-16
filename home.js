@@ -1,7 +1,11 @@
 
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, NativeModules } from "react-native";
 class home extends Component {
+
+    static navigationOptions = () => ({
+        header: null
+    })
 
     render() {
         return (
