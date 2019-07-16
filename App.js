@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import scanCode from "./qrcode/scanCode";
+import scanCode from "./pages/qrcode/scanCode";
 import home from "./home";
-import qrcode from "./qrcode/qrcode";
+import qrcode from "./pages/qrcode/qrcode";
+import toast from "./pages/toast/toast";
 
 const AppNavigator = createStackNavigator(
     {
         home: home,
         qrcode: qrcode,
-        scanCode: scanCode
+        scanCode: scanCode,
+        toast: toast
     },
     {
         initialRouteName: "home"

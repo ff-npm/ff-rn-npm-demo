@@ -9,6 +9,9 @@ class home extends Component {
                 <View style={{marginTop:20}}>
                     <Button onPress={()=>this.props.navigation.navigate("qrcode")} title="扫码"></Button>
                 </View>
+                <View style={{marginTop:20}}>
+                    <Button onPress={()=>this.props.navigation.navigate("toast")} title="toast"></Button>
+                </View>
             </View>
         );
     }
