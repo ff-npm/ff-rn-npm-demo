@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from "react-native";
 import { RNQRCode, QrcodeView } from "react-native-ff-qrcode";
+
 export default class scanCode extends Component {
 
     static navigationOptions = ({ navigation }) => {
@@ -16,7 +17,7 @@ export default class scanCode extends Component {
     constructor(props){
         super(props);
         this.state = {
-            flashStatus: 1
+            flashStatus: 0
         }
     }
 
@@ -34,7 +35,23 @@ export default class scanCode extends Component {
     componentDidMount() {
         RNQRCode.initQrCodeView((res)=> {
             console.log(res);
-            alert(res);
+            alert(res.msg);
+            switch (res.code) {
+                case 200:
+                    alert(res.resp);
+                    break;
+                case 201:
+                    RNQRCode.authJump();
+                    break;
+                case 202:
+                    RNQRCode.authJump();
+                    break;
+                case 203:
+
+                    break;
+                default:
+                    break;
+            }
         });
     }
 

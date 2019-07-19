@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {View, Text, Button, TextInput} from "react-native";
-import ModalDropdown from 'react-native-modal-dropdown';
+import {View, Text, Button, TextInput, ScrollView} from "react-native";
+import Select from "./../components/Select";
 
 export default class toast extends Component {
 
@@ -11,13 +11,17 @@ export default class toast extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ""
+            text: "",
+            iconList: ["success", "failed", "loading"],
+            selectValue: "",
+            toastTime: ["short", "long"],
+            timeAelectValue: ""
         }
     }
 
     render() {
         return (
-            <View>
+            <ScrollView contentContainerStyle={{flex: 1}}>
                 <View style={{marginTop:20}}>
                     <View style={{marginTop:20}}>
                         <TextInput
@@ -28,20 +32,42 @@ export default class toast extends Component {
                         />
                     </View>
                     <View style={{marginTop:20}}>
-                        <ModalDropdown
-                            options={['success', 'error']}
-                            defaultValue="请选择提示图标类型"
-                            onSelect={this.selectIcon}
+                        <Select
+                            style={{height:40, borderColor: 'gray', borderWidth: 1, lineHeight: 40}}
+                            data={this.state.iconList}
+                            placeholder="请选择图标类型"
+                            value={this.state.selectValue}
+                            onChange={this.selectIcon}
                         />
                     </View>
-                    <Button onPress={()=>this.props.navigation.navigate("qrcode")} title="toast"></Button>
+                    <View style={{marginTop:20}}>
+                        <Select
+                            style={{height:40, borderColor: 'gray', borderWidth: 1, lineHeight: 40,overflow: "visible"}}
+                            data={this.state.toastTime}
+                            placeholder="请选择展示时长"
+                            value={this.state.timeAelectValue}
+                            onChange={this.selectTime}
+                        />
+                    </View>
+                    <View style={{marginTop:20}}>
+                        <Button onPress={()=>this.props.navigation.navigate("qrcode")} title="toast"></Button>
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 
-    selectIcon = (index, val) => {
+    selectIcon = (index) => {
+        console.log(index)
+        this.setState((state)=>({
+            selectValue: state.iconList[index]
+        }))
+    }
 
+    selectTime = (index) => {
+        this.setState((state)=>({
+            timeAelectValue: state.toastTime[index]
+        }))
     }
 
 }
