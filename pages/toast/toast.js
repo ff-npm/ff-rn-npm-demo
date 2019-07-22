@@ -50,6 +50,14 @@ export default class toast extends Component {
                         />
                     </View>
                     <View style={{marginTop:20}}>
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            onChangeText={(text) => this.setState({text})}
+                            value={this.state.text}
+                            placeholder="请输入提示的文字"
+                        />
+                    </View>
+                    <View style={{marginTop:20}}>
                         <Button onPress={()=>this.props.navigation.navigate("qrcode")} title="toast"></Button>
                     </View>
                 </View>
