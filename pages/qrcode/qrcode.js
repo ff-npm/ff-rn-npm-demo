@@ -29,15 +29,45 @@ class home extends Component {
     nativeQrcode = ()=> {
         console.log(RNQRCode)
         RNQRCode.nativeQRCodeWithCallback((res)=>{
-            this.setState({nativeQrcodeRes: res});
-            alert(res);
+            alert(res.msg);
+            switch (res.code) {
+                case 200:
+                    this.setState({nativeQrcodeRes: res.resp});
+                    break;
+                case 201:
+                    RNQRCode.authJump();
+                    break;
+                case 202:
+                    RNQRCode.authJump();
+                    break;
+                case 203:
+
+                    break;
+                default:
+                    break;
+            }
         })
     }
 
     photoQrcode = ()=> {
         RNQRCode.libraryPhotoQRCodeWithCallback((res)=>{
-            this.setState({nativeQrcodeRes: res});
-            alert(res);
+            alert(res.msg);
+            switch (res.code) {
+                case 200:
+                    this.setState({nativeQrcodeRes: res.resp});
+                    break;
+                case 201:
+                    RNQRCode.authJump();
+                    break;
+                case 202:
+                    RNQRCode.authJump();
+                    break;
+                case 203:
+
+                    break;
+                default:
+                    break;
+            }
         })
     }
 

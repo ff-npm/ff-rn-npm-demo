@@ -24,7 +24,23 @@ export default class scanCode extends Component {
     albumScanCode = ()=>{
         RNQRCode.libraryPhotoQRCodeWithCallback((res)=>{
             console.log(res);
-            alert(res);
+            alert(res.msg);
+            switch (res.code) {
+                case 200:
+                    alert(res.resp);
+                    break;
+                case 201:
+                    RNQRCode.authJump();
+                    break;
+                case 202:
+                    RNQRCode.authJump();
+                    break;
+                case 203:
+
+                    break;
+                default:
+                    break;
+            }
         })
     }
 
@@ -53,6 +69,10 @@ export default class scanCode extends Component {
                     break;
             }
         });
+    }
+
+    componentWillUnmount() {
+        RNQRCode.flashSwitch(0);
     }
 
     openFlash = () => {
