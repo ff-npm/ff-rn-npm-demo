@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
-import com.reactlibrary.rns.qrcode.R;
+import com.ffomall.rns.qrcode.R;
 
 
 /**
