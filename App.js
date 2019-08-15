@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, SafeAreaView } from "react-navigation";
 import scanCode from "./pages/qrcode/scanCode";
 import home from "./home";
 import qrcode from "./pages/qrcode/qrcode";
@@ -21,7 +21,9 @@ const AppContainer = createAppContainer(AppNavigator);
 export default class App extends Component {
     render() {
         return (
-            <AppContainer />
+            <SafeAreaView style={{flex: 1}}>
+                <AppContainer />
+            </SafeAreaView>
         )
     }
 }
